@@ -1,6 +1,8 @@
 # CV Maker PDF
 
-Editor vizual de CV cu export PDF, rulat local pe Windows. Fara dependente externe — doar Node.js.
+**Online: https://cv-maker-pdf.onrender.com/**
+
+Local : Editor vizual de CV cu export PDF, rulat local pe Windows. Fara dependente externe — doar Node.js.
 
 ---
 
