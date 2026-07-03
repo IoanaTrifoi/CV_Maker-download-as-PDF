@@ -1,0 +1,286 @@
+{
+  "id": "tsa",
+  "name": "TSA Standard",
+  "description": "Șablon standard pentru CV TSA — structură profesională, gata de completat",
+  "colors": [
+    "#003366",
+    "#e8eef5",
+    "#1a56db"
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "name": "Prenume Nume",
+      "title": "TSA Specialist",
+      "contacts": [
+        {
+          "icon": "fa-location-dot",
+          "text": "Str. Exemplu 1, 010101 Oraș"
+        },
+        {
+          "icon": "fa-phone",
+          "text": "+40 700 000 000",
+          "href": "tel:+40700000000"
+        },
+        {
+          "icon": "fa-envelope",
+          "text": "email@exemplu.com",
+          "href": "mailto:email@exemplu.com"
+        },
+        {
+          "icon": "fa-id-card",
+          "text": "Autorizație TSA / ID angajat"
+        }
+      ],
+      "photo": {
+        "width": 110,
+        "height": 140
+      }
+    },
+    {
+      "type": "section",
+      "title": "Profil Profesional",
+      "icon": "fa-user",
+      "titleColor": "#003366",
+      "children": [
+        {
+          "type": "paragraph",
+          "text": "Specialist TSA cu experiență în proceduri operaționale, conformitate și siguranță. Abilități dovedite în gestionarea fluxurilor de lucru, comunicare cu echipe multidisciplinare și respectarea standardelor de calitate. Orientat spre eficiență, acuratețe și servicii profesionale.",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        }
+      ],
+      "layout": {
+        "grid": "1",
+        "margin": 0,
+        "padding": 14,
+        "shadow": "none",
+        "bgColor": "#e8eef5",
+        "borderColor": "#bfdbfe",
+        "boxWidth": 0,
+        "boxHeight": 0
+      }
+    },
+    {
+      "type": "section",
+      "title": "Experiență Profesională",
+      "icon": "fa-briefcase",
+      "titleColor": "#003366",
+      "children": [
+        {
+          "type": "timeline",
+          "period": "2022 - prezent",
+          "heading": "TSA Specialist / Operator",
+          "subtitle": "Organizație / Locație",
+          "items": [
+            "Aplicarea procedurilor standard de operare (SOP) și verificări de conformitate",
+            "Monitorizarea fluxurilor operaționale și raportarea incidentelor",
+            "Colaborare cu echipele de suport pentru rezolvarea situațiilor critice"
+          ],
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "type": "timeline",
+          "period": "2019 - 2022",
+          "heading": "Asistent Operațiuni",
+          "subtitle": "Companie / Oraș",
+          "items": [
+            "Suport în activități zilnice și documentare procese",
+            "Participare la training-uri de siguranță și actualizări procedurale"
+          ],
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        }
+      ],
+      "layout": {
+        "grid": "1",
+        "margin": 0,
+        "padding": 14,
+        "shadow": "none",
+        "bgColor": "transparent",
+        "borderColor": "#bfdbfe",
+        "boxWidth": 0,
+        "boxHeight": 0
+      }
+    },
+    {
+      "type": "section",
+      "title": "Certificări și Autorizații",
+      "icon": "fa-certificate",
+      "titleColor": "#003366",
+      "children": [
+        {
+          "type": "skill-row",
+          "label": "Autorizație TSA / Securitate",
+          "value": "Valabilă",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "type": "skill-row",
+          "label": "Training siguranță operațională",
+          "value": "Certificat",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "type": "skill-row",
+          "label": "Prim ajutor / CPR",
+          "value": "Certificat",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        }
+      ],
+      "layout": {
+        "grid": "1",
+        "margin": 0,
+        "padding": 14,
+        "shadow": "none",
+        "bgColor": "#e8eef5",
+        "borderColor": "#bfdbfe",
+        "boxWidth": 0,
+        "boxHeight": 0
+      }
+    },
+    {
+      "type": "section",
+      "title": "Competențe Cheie",
+      "icon": "fa-wrench",
+      "titleColor": "#003366",
+      "children": [
+        {
+          "type": "progress",
+          "label": "Proceduri operaționale (SOP)",
+          "value": 90,
+          "color": "#003366",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "type": "progress",
+          "label": "Conformitate și raportare",
+          "value": 85,
+          "color": "#1a56db",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "type": "progress",
+          "label": "Comunicare și lucru în echipă",
+          "value": 88,
+          "color": "#1a56db",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "type": "progress",
+          "label": "Gestionarea situațiilor critice",
+          "value": 80,
+          "color": "#003366",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        }
+      ],
+      "layout": {
+        "grid": "1",
+        "margin": 0,
+        "padding": 14,
+        "shadow": "none",
+        "bgColor": "transparent",
+        "borderColor": "#bfdbfe",
+        "boxWidth": 0,
+        "boxHeight": 0
+      }
+    },
+    {
+      "type": "section",
+      "title": "Educație",
+      "icon": "fa-graduation-cap",
+      "titleColor": "#003366",
+      "children": [
+        {
+          "type": "timeline",
+          "period": "2014 - 2018",
+          "heading": "Licență — Domeniul de studiu",
+          "subtitle": "Universitate / Oraș",
+          "items": [],
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        }
+      ],
+      "layout": {
+        "grid": "1",
+        "margin": 0,
+        "padding": 14,
+        "shadow": "none",
+        "bgColor": "#e8eef5",
+        "borderColor": "#bfdbfe",
+        "boxWidth": 0,
+        "boxHeight": 0
+      }
+    },
+    {
+      "type": "section",
+      "title": "Limbi Străine",
+      "icon": "fa-language",
+      "titleColor": "#003366",
+      "children": [
+        {
+          "type": "skill-dots",
+          "label": "Română",
+          "value": 5,
+          "max": 5,
+          "color": "#003366",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "type": "skill-dots",
+          "label": "Engleză",
+          "value": 4,
+          "max": 5,
+          "color": "#1a56db",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        }
+      ],
+      "layout": {
+        "grid": "1",
+        "margin": 0,
+        "padding": 14,
+        "shadow": "none",
+        "bgColor": "transparent",
+        "borderColor": "#bfdbfe",
+        "boxWidth": 0,
+        "boxHeight": 0
+      }
+    }
+  ]
+}

@@ -11,6 +11,8 @@ const state = {
   page: CVBlocks.defaultPage(),
 };
 
+const DEFAULT_TEMPLATE_ID = 'tsa';
+
 // Undo/redo history
 const history = [];
 let historyIndex = -1;
@@ -984,13 +986,18 @@ function renderTemplateGridMenu() {
   });
 }
 
-async function applyTemplate(templateId) {
+
+async function applyTemplate(templateId, options = {}) {
+  const silent = options.silent === true;
   const tplMeta = state.templates.find((tpl) => tpl.id === templateId);
   const rawName = tplMeta?.name || `Template ${templateId}`;
   const i18nKey = `tpl_${templateId}_name`;
   const label = t(i18nKey) !== i18nKey ? t(i18nKey) : rawName;
-  const ok = window.confirm(t('tpl_confirm', { name: label }));
-  if (!ok) return;
+
+  if (!silent) {
+    const ok = window.confirm(t('tpl_confirm', { name: label }));
+    if (!ok) return;
+  }
 
   setStatus(t('status_loading_tpl', { name: label }), '');
   try {
@@ -1005,7 +1012,7 @@ async function applyTemplate(templateId) {
     renderTemplateGridMenu();
     renderCanvas();
     renderProps();
-    setStatus(t('status_tpl_applied', { name: label }), 'ok');
+    setStatus(silent ? t('status_tpl_default', { name: label }) : t('status_tpl_applied', { name: label }), 'ok');
   } catch (e) {
     setStatus(e.message, 'err');
   }
@@ -1026,6 +1033,12 @@ async function loadBlocks() {
   state.activeTemplateId = null;
   history.length = 0;
   historyIndex = -1;
+
+  if (!state.blocks.length) {
+    await applyTemplate(DEFAULT_TEMPLATE_ID, { silent: true });
+    return;
+  }
+
   pushHistory();
   renderTemplateGridMenu();
   renderCanvas();
@@ -1317,8 +1330,9 @@ function init() {
   updateUndoRedoBtns();
 
   // ── Load templates + blocks ──
-  loadTemplates().catch((e) => setStatus(e.message, 'err'));
-  loadBlocks().catch((e) => setStatus(e.message, 'err'));
+  loadTemplates()
+    .then(() => loadBlocks())
+    .catch((e) => setStatus(e.message, 'err'));
 }
 
 init();

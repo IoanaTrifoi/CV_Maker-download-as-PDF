@@ -10,9 +10,9 @@ const ROOT = __dirname;
 const PUBLIC = path.join(ROOT, 'public');
 const CV_HTML = path.join(ROOT, 'output', 'lebenslauf_ioana_trifoi.html');
 const CV_PDF = path.join(ROOT, 'output', 'lebenslauf_ioana_trifoi.pdf');
+const DEFAULT_TEMPLATE_ID = 'tsa';
 const BLOCKS_FILE = path.join(ROOT, 'data', 'cv-blocks.json');
 const TEMPLATES_DIR = path.join(ROOT, 'data', 'templates');
-const SEED_BLOCKS = path.join(ROOT, 'data', 'cv-blocks.json');
 const UPLOADS_DIR = path.join(ROOT, 'uploads');
 const OUTPUT_DIR = path.join(ROOT, 'output');
 
@@ -94,18 +94,30 @@ function defaultPage() {
   return { marginTop: 10, marginRight: 12, marginBottom: 10, marginLeft: 12 };
 }
 
+function loadDefaultTemplateBlocks() {
+  const tpl = loadTemplate(DEFAULT_TEMPLATE_ID);
+  if (!tpl || !Array.isArray(tpl.blocks)) {
+    return { blocks: [], page: defaultPage() };
+  }
+  return { blocks: tpl.blocks, page: defaultPage() };
+}
+
 function loadBlocks() {
   if (!fs.existsSync(BLOCKS_FILE)) {
-    return { blocks: [], page: defaultPage() };
+    return loadDefaultTemplateBlocks();
   }
   const raw = JSON.parse(fs.readFileSync(BLOCKS_FILE, 'utf8'));
   if (Array.isArray(raw)) {
-    return { blocks: raw, page: defaultPage() };
+    const doc = { blocks: raw, page: defaultPage() };
+    if (!doc.blocks.length) return loadDefaultTemplateBlocks();
+    return doc;
   }
-  return {
+  const doc = {
     blocks: Array.isArray(raw.blocks) ? raw.blocks : [],
     page: { ...defaultPage(), ...(raw.page || {}) },
   };
+  if (!doc.blocks.length) return loadDefaultTemplateBlocks();
+  return doc;
 }
 
 function saveBlocks(blocks, page = defaultPage()) {
