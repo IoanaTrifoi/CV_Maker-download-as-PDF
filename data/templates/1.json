@@ -1,0 +1,333 @@
+{
+  "id": "1",
+  "name": "Sidebar Bej",
+  "description": "Coloana laterala stanga calda, design clasic profesional",
+  "colors": [
+    "#f0ebe4",
+    "#5c4a2a",
+    "#8b7355"
+  ],
+  "blocks": [
+    {
+      "type": "container",
+      "grid": "sidebar-left",
+      "bgColor": "transparent",
+      "borderColor": "transparent",
+      "padding": 0,
+      "margin": 0,
+      "shadow": "none",
+      "boxWidth": 0,
+      "boxHeight": 0,
+      "children": [
+        {
+          "type": "container",
+          "grid": "1",
+          "bgColor": "#f0ebe4",
+          "borderColor": "transparent",
+          "padding": 20,
+          "margin": 0,
+          "shadow": "none",
+          "boxWidth": 0,
+          "boxHeight": 0,
+          "children": [
+            {
+              "type": "heading",
+              "text": "Prenume Nume",
+              "textColor": "#3d2b1a",
+              "box": {
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "type": "paragraph",
+              "text": "Titlul Tau Profesional",
+              "textColor": "#7a6350",
+              "box": {
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "type": "divider",
+              "box": {
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "type": "icon-row",
+              "icon": "fa-location-dot",
+              "text": "Str. Exemplu 1, 010101 Oras",
+              "color": "#6b7280",
+              "box": {
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "type": "icon-row",
+              "icon": "fa-phone",
+              "text": "+40 700 000 000",
+              "color": "#6b7280",
+              "box": {
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "type": "icon-row",
+              "icon": "fa-envelope",
+              "text": "email@exemplu.com",
+              "color": "#6b7280",
+              "box": {
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "type": "icon-row",
+              "icon": "fa-linkedin",
+              "text": "linkedin.com/in/profil",
+              "color": "#6b7280",
+              "box": {
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "type": "divider",
+              "box": {
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "type": "section",
+              "title": "Competente",
+              "icon": "fa-star",
+              "titleColor": "#5c4a2a",
+              "children": [
+                {
+                  "type": "skill-row",
+                  "label": "Competenta 1:",
+                  "value": "Nivel avansat",
+                  "box": {
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                {
+                  "type": "skill-row",
+                  "label": "Competenta 2:",
+                  "value": "Nivel intermediar",
+                  "box": {
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                {
+                  "type": "skill-row",
+                  "label": "Competenta 3:",
+                  "value": "Nivel mediu",
+                  "box": {
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                {
+                  "type": "skill-row",
+                  "label": "Planificare:",
+                  "value": "Strategica",
+                  "box": {
+                    "width": 0,
+                    "height": 0
+                  }
+                }
+              ],
+              "layout": {
+                "grid": "1",
+                "margin": 0,
+                "padding": 10,
+                "shadow": "none",
+                "bgColor": "transparent",
+                "borderColor": "#d6c9b5",
+                "boxWidth": 0,
+                "boxHeight": 0
+              }
+            },
+            {
+              "type": "divider",
+              "box": {
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "type": "section",
+              "title": "Limbi Straine",
+              "icon": "fa-globe",
+              "titleColor": "#5c4a2a",
+              "children": [
+                {
+                  "type": "skill-row",
+                  "label": "Engleza:",
+                  "value": "C1 - Avansat",
+                  "box": {
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                {
+                  "type": "skill-row",
+                  "label": "Franceza:",
+                  "value": "B1 - Intermediar",
+                  "box": {
+                    "width": 0,
+                    "height": 0
+                  }
+                }
+              ],
+              "layout": {
+                "grid": "1",
+                "margin": 0,
+                "padding": 10,
+                "shadow": "none",
+                "bgColor": "transparent",
+                "borderColor": "#d6c9b5",
+                "boxWidth": 0,
+                "boxHeight": 0
+              }
+            }
+          ]
+        },
+        {
+          "type": "container",
+          "grid": "1",
+          "bgColor": "#ffffff",
+          "borderColor": "transparent",
+          "padding": 20,
+          "margin": 0,
+          "shadow": "none",
+          "boxWidth": 0,
+          "boxHeight": 0,
+          "children": [
+            {
+              "type": "section",
+              "title": "Profil",
+              "icon": "fa-user",
+              "titleColor": "#5c4a2a",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "text": "Profesionist dedicat, cu experienta solida si o abordare pragmatica in rezolvarea problemelor. Orientat spre rezultate, cu abilitati excelente de comunicare si leadership. Dornic sa contribui la succesul organizatiei prin solutii inovatoare si eficiente.",
+                  "box": {
+                    "width": 0,
+                    "height": 0
+                  }
+                }
+              ],
+              "layout": {
+                "grid": "1",
+                "margin": 0,
+                "padding": 14,
+                "shadow": "none",
+                "bgColor": "transparent",
+                "borderColor": "#ddd5c8",
+                "boxWidth": 0,
+                "boxHeight": 0
+              }
+            },
+            {
+              "type": "section",
+              "title": "Experienta Profesionala",
+              "icon": "fa-briefcase",
+              "titleColor": "#5c4a2a",
+              "children": [
+                {
+                  "type": "timeline",
+                  "period": "2022 - prezent",
+                  "heading": "Manager Proiect",
+                  "subtitle": "Compania Alpha SRL | Oras",
+                  "items": [
+                    "Coordonarea si livrarea proiectelor la termen si in buget",
+                    "Cresterea satisfactiei clientilor cu 30% in primul an",
+                    "Implementarea proceselor de optimizare si reducerea costurilor"
+                  ],
+                  "box": {
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                {
+                  "type": "timeline",
+                  "period": "2019 - 2022",
+                  "heading": "Specialist Senior",
+                  "subtitle": "Beta Solutions SA | Oras",
+                  "items": [
+                    "Gestionarea portofoliului de clienti si extinderea acestuia",
+                    "Colaborare interdepartamentala pentru atingerea obiectivelor"
+                  ],
+                  "box": {
+                    "width": 0,
+                    "height": 0
+                  }
+                }
+              ],
+              "layout": {
+                "grid": "1",
+                "margin": 0,
+                "padding": 14,
+                "shadow": "none",
+                "bgColor": "transparent",
+                "borderColor": "#ddd5c8",
+                "boxWidth": 0,
+                "boxHeight": 0
+              }
+            },
+            {
+              "type": "section",
+              "title": "Educatie",
+              "icon": "fa-graduation-cap",
+              "titleColor": "#5c4a2a",
+              "children": [
+                {
+                  "type": "timeline",
+                  "period": "2014 - 2018",
+                  "heading": "Licenta - Domeniul Tau de Studiu",
+                  "subtitle": "Universitatea X | Oras",
+                  "items": [],
+                  "box": {
+                    "width": 0,
+                    "height": 0
+                  }
+                },
+                {
+                  "type": "timeline",
+                  "period": "2018 - 2020",
+                  "heading": "Master - Specialitatea Ta",
+                  "subtitle": "Institutul Y | Oras",
+                  "items": [],
+                  "box": {
+                    "width": 0,
+                    "height": 0
+                  }
+                }
+              ],
+              "layout": {
+                "grid": "1",
+                "margin": 0,
+                "padding": 14,
+                "shadow": "none",
+                "bgColor": "transparent",
+                "borderColor": "#ddd5c8",
+                "boxWidth": 0,
+                "boxHeight": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

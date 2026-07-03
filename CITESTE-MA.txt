@@ -1,0 +1,21 @@
+CV Maker PDF
+==============
+
+Pornire:
+  1. Dublu-click pe START.bat
+  2. Se deschide browserul la http://localhost:3847
+
+Structura folderului:
+  public/     — interfața aplicației (editor vizual)
+  data/       — conținutul CV-ului (cv-blocks.json) + șabloane
+  uploads/    — poze încărcate din aplicație
+  output/     — CV HTML + PDF generate
+  CV-EXEMPLE/ — exemplele originale SVG (previzualizări șabloane)
+  scripts/    — utilitare (generare șabloane)
+
+Cerințe:
+  - Node.js (https://nodejs.org)
+  - Google Chrome sau Microsoft Edge (pentru generare PDF)
+
+PDF generat:
+  output\lebenslauf_ioana_trifoi.pdf

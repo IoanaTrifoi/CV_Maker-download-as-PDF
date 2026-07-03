@@ -1,0 +1,9 @@
+{
+  "name": "cv-maker-pdf",
+  "version": "1.0.0",
+  "description": "CV Builder vizual — editează CV-ul și generează PDF",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

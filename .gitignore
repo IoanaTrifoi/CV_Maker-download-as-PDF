@@ -1,0 +1,43 @@
+# ── Date personale / fișiere private ──────────────────────────────
+# CV-urile personale ale utilizatorului curent (docx, html generat)
+documents/
+
+# Fișierul CV activ al utilizatorului (se generează la prima utilizare)
+data/cv-blocks.json
+
+# Uploaduri ale utilizatorului (poze profil, imagini inserate)
+uploads/
+
+# Output HTML generat pentru PDF
+output/
+
+# ── Fișiere generate / build ───────────────────────────────────────
+# Pachete ZIP de distribuție
+*.zip
+
+# Fișiere de lucru SVG intermediare (versiunea finală e în public/templates/)
+CV-EXEMPLE/
+
+# ── Loguri server ──────────────────────────────────────────────────
+server-out.txt
+server-err.txt
+*.log
+
+# ── Node.js ────────────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+.npm
+
+# ── OS ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ── IDE / Editor ───────────────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.user
+*.swp
+*.swo

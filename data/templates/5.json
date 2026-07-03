@@ -1,0 +1,237 @@
+{
+  "id": "5",
+  "name": "Modern Galben",
+  "description": "Accente galbene bold, font Oswald, design puternic",
+  "colors": [
+    "#d97706",
+    "#1f2937",
+    "#fef3c7"
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "name": "Prenume Nume",
+      "title": "Titlul Tau Profesional",
+      "contacts": [
+        {
+          "icon": "fa-location-dot",
+          "text": "Str. Exemplu 1, 010101 Oras"
+        },
+        {
+          "icon": "fa-phone",
+          "text": "+40 700 000 000",
+          "href": "tel:+40700000000"
+        },
+        {
+          "icon": "fa-envelope",
+          "text": "email@exemplu.com",
+          "href": "mailto:email@exemplu.com"
+        },
+        {
+          "icon": "fa-linkedin",
+          "text": "linkedin.com/in/profil",
+          "href": "https://linkedin.com",
+          "brand": true
+        }
+      ],
+      "photo": {
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "type": "section",
+      "title": "Profil",
+      "icon": "fa-user",
+      "titleColor": "#d97706",
+      "children": [
+        {
+          "type": "paragraph",
+          "text": "Profesionist dedicat, cu experienta solida si o abordare pragmatica in rezolvarea problemelor. Orientat spre rezultate, cu abilitati excelente de comunicare si leadership. Dornic sa contribui la succesul organizatiei prin solutii inovatoare si eficiente.",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        }
+      ],
+      "layout": {
+        "grid": "1",
+        "margin": 0,
+        "padding": 14,
+        "shadow": "none",
+        "bgColor": "#fffbeb",
+        "borderColor": "#fcd34d",
+        "boxWidth": 0,
+        "boxHeight": 0,
+        "fontFamily": "Oswald"
+      }
+    },
+    {
+      "type": "section",
+      "title": "Experienta",
+      "icon": "fa-briefcase",
+      "titleColor": "#d97706",
+      "children": [
+        {
+          "type": "timeline",
+          "period": "2022 - prezent",
+          "heading": "Manager Proiect",
+          "subtitle": "Compania Alpha SRL | Oras",
+          "items": [
+            "Coordonarea si livrarea proiectelor la termen si in buget",
+            "Cresterea satisfactiei clientilor cu 30% in primul an",
+            "Implementarea proceselor de optimizare si reducerea costurilor"
+          ],
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "type": "timeline",
+          "period": "2019 - 2022",
+          "heading": "Specialist Senior",
+          "subtitle": "Beta Solutions SA | Oras",
+          "items": [
+            "Gestionarea portofoliului de clienti si extinderea acestuia",
+            "Colaborare interdepartamentala pentru atingerea obiectivelor"
+          ],
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "type": "timeline",
+          "period": "2016 - 2019",
+          "heading": "Specialist",
+          "subtitle": "Gamma Corp SRL | Oras",
+          "items": [
+            "Participare la proiecte de implementare si dezvoltare",
+            "Asistarea echipei in activitatile zilnice"
+          ],
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        }
+      ],
+      "layout": {
+        "grid": "1",
+        "margin": 0,
+        "padding": 14,
+        "shadow": "none",
+        "bgColor": "transparent",
+        "borderColor": "#fcd34d",
+        "boxWidth": 0,
+        "boxHeight": 0,
+        "fontFamily": "Oswald"
+      }
+    },
+    {
+      "type": "section",
+      "title": "Educatie",
+      "icon": "fa-graduation-cap",
+      "titleColor": "#d97706",
+      "children": [
+        {
+          "type": "timeline",
+          "period": "2014 - 2018",
+          "heading": "Licenta - Domeniul Tau de Studiu",
+          "subtitle": "Universitatea X | Oras",
+          "items": [],
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "type": "timeline",
+          "period": "2018 - 2020",
+          "heading": "Master - Specialitatea Ta",
+          "subtitle": "Institutul Y | Oras",
+          "items": [],
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        }
+      ],
+      "layout": {
+        "grid": "1",
+        "margin": 0,
+        "padding": 14,
+        "shadow": "none",
+        "bgColor": "#fffbeb",
+        "borderColor": "#fcd34d",
+        "boxWidth": 0,
+        "boxHeight": 0,
+        "fontFamily": "Oswald"
+      }
+    },
+    {
+      "type": "section",
+      "title": "Skills",
+      "icon": "fa-star",
+      "titleColor": "#d97706",
+      "children": [
+        {
+          "type": "skill-row",
+          "label": "Competenta 1:",
+          "value": "Nivel avansat",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "type": "skill-row",
+          "label": "Comunicare:",
+          "value": "Excelenta",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "type": "skill-row",
+          "label": "Planificare:",
+          "value": "Strategica",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "type": "skill-row",
+          "label": "Engleza:",
+          "value": "C1",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "type": "skill-row",
+          "label": "Franceza:",
+          "value": "B1",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        }
+      ],
+      "layout": {
+        "grid": "1",
+        "margin": 0,
+        "padding": 14,
+        "shadow": "none",
+        "bgColor": "transparent",
+        "borderColor": "#fcd34d",
+        "boxWidth": 0,
+        "boxHeight": 0,
+        "fontFamily": "Oswald"
+      }
+    }
+  ]
+}

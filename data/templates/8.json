@@ -1,0 +1,240 @@
+{
+  "id": "8",
+  "name": "Creativ Colorat",
+  "description": "Layout 2 coloane, accent turcoaz, font Poppins",
+  "colors": [
+    "#0891b2",
+    "#0e7490",
+    "#f0fdff"
+  ],
+  "blocks": [
+    {
+      "type": "header",
+      "name": "Prenume Nume",
+      "title": "Titlul Tau Profesional",
+      "contacts": [
+        {
+          "icon": "fa-location-dot",
+          "text": "Str. Exemplu 1, 010101 Oras"
+        },
+        {
+          "icon": "fa-phone",
+          "text": "+40 700 000 000",
+          "href": "tel:+40700000000"
+        },
+        {
+          "icon": "fa-envelope",
+          "text": "email@exemplu.com",
+          "href": "mailto:email@exemplu.com"
+        },
+        {
+          "icon": "fa-linkedin",
+          "text": "linkedin.com/in/profil",
+          "href": "https://linkedin.com",
+          "brand": true
+        }
+      ],
+      "photo": {
+        "width": 110,
+        "height": 140
+      }
+    },
+    {
+      "type": "container",
+      "grid": "2",
+      "bgColor": "transparent",
+      "borderColor": "transparent",
+      "padding": 0,
+      "margin": 0,
+      "shadow": "none",
+      "boxWidth": 0,
+      "boxHeight": 0,
+      "children": [
+        {
+          "type": "section",
+          "title": "Profil",
+          "icon": "fa-user",
+          "titleColor": "#0891b2",
+          "children": [
+            {
+              "type": "paragraph",
+              "text": "Profesionist dedicat, cu experienta solida si o abordare pragmatica in rezolvarea problemelor. Orientat spre rezultate, cu abilitati excelente de comunicare si leadership. Dornic sa contribui la succesul organizatiei prin solutii inovatoare si eficiente.",
+              "box": {
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "type": "divider",
+              "box": {
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "type": "heading",
+              "text": "Competente",
+              "textColor": "#0891b2",
+              "box": {
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "type": "skill-row",
+              "label": "Competenta 1:",
+              "value": "Avansat",
+              "box": {
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "type": "skill-row",
+              "label": "Competenta 2:",
+              "value": "Intermediar",
+              "box": {
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "type": "skill-row",
+              "label": "Competenta 3:",
+              "value": "Mediu",
+              "box": {
+                "width": 0,
+                "height": 0
+              }
+            }
+          ],
+          "layout": {
+            "grid": "1",
+            "margin": 0,
+            "padding": 14,
+            "shadow": "none",
+            "bgColor": "#f0fdff",
+            "borderColor": "#a5f3fc",
+            "boxWidth": 0,
+            "boxHeight": 0,
+            "fontFamily": "Poppins"
+          }
+        },
+        {
+          "type": "section",
+          "title": "Experienta",
+          "icon": "fa-briefcase",
+          "titleColor": "#0891b2",
+          "children": [
+            {
+              "type": "timeline",
+              "period": "2022 - prezent",
+              "heading": "Manager Proiect",
+              "subtitle": "Compania Alpha SRL | Oras",
+              "items": [
+                "Coordonarea si livrarea proiectelor la termen si in buget",
+                "Cresterea satisfactiei clientilor cu 30% in primul an",
+                "Implementarea proceselor de optimizare si reducerea costurilor"
+              ],
+              "box": {
+                "width": 0,
+                "height": 0
+              }
+            },
+            {
+              "type": "timeline",
+              "period": "2019 - 2022",
+              "heading": "Specialist Senior",
+              "subtitle": "Beta Solutions SA | Oras",
+              "items": [
+                "Gestionarea portofoliului de clienti si extinderea acestuia",
+                "Colaborare interdepartamentala pentru atingerea obiectivelor"
+              ],
+              "box": {
+                "width": 0,
+                "height": 0
+              }
+            }
+          ],
+          "layout": {
+            "grid": "1",
+            "margin": 0,
+            "padding": 14,
+            "shadow": "none",
+            "bgColor": "transparent",
+            "borderColor": "#a5f3fc",
+            "boxWidth": 0,
+            "boxHeight": 0,
+            "fontFamily": "Poppins"
+          }
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "title": "Educatie & Limbi",
+      "icon": "fa-graduation-cap",
+      "titleColor": "#0891b2",
+      "children": [
+        {
+          "type": "timeline",
+          "period": "2014 - 2018",
+          "heading": "Licenta - Domeniul Tau de Studiu",
+          "subtitle": "Universitatea X | Oras",
+          "items": [],
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "type": "timeline",
+          "period": "2018 - 2020",
+          "heading": "Master - Specialitatea Ta",
+          "subtitle": "Institutul Y | Oras",
+          "items": [],
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "type": "divider",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "type": "skill-row",
+          "label": "Engleza:",
+          "value": "C1 Avansat",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        },
+        {
+          "type": "skill-row",
+          "label": "Franceza:",
+          "value": "B1 Intermediar",
+          "box": {
+            "width": 0,
+            "height": 0
+          }
+        }
+      ],
+      "layout": {
+        "grid": "1",
+        "margin": 0,
+        "padding": 14,
+        "shadow": "none",
+        "bgColor": "#f0fdff",
+        "borderColor": "#a5f3fc",
+        "boxWidth": 0,
+        "boxHeight": 0,
+        "fontFamily": "Poppins"
+      }
+    }
+  ]
+}
