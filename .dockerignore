@@ -1,0 +1,11 @@
+node_modules
+.git
+documents
+output
+uploads
+CV-EXEMPLE
+*.zip
+server-out.txt
+server-err.txt
+*.log
+.github

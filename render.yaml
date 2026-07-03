@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: cv-maker-pdf
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CHROME_PATH
+        value: /usr/bin/chromium

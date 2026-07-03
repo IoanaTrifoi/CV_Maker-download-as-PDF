@@ -4,7 +4,8 @@ const path = require('path');
 const { spawn } = require('child_process');
 const { URL } = require('url');
 
-const PORT = 3847;
+const PORT = Number(process.env.PORT) || 3847;
+const HOST = process.env.HOST || '0.0.0.0';
 const ROOT = __dirname;
 const PUBLIC = path.join(ROOT, 'public');
 const CV_HTML = path.join(ROOT, 'output', 'lebenslauf_ioana_trifoi.html');
@@ -16,10 +17,16 @@ const UPLOADS_DIR = path.join(ROOT, 'uploads');
 const OUTPUT_DIR = path.join(ROOT, 'output');
 
 const CHROME_CANDIDATES = [
+  process.env.CHROME_PATH,
+  process.env.GOOGLE_CHROME_BIN,
   'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-  'C:\\Program Files (x86)\\Google\\Chrome\\Application\\msedge.exe',
+  'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
   'C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe',
-];
+  '/usr/bin/chromium',
+  '/usr/bin/chromium-browser',
+  '/usr/bin/google-chrome-stable',
+  '/usr/bin/google-chrome',
+].filter(Boolean);
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -136,7 +143,7 @@ function generatePdf() {
   return new Promise((resolve, reject) => {
     const chrome = findChrome();
     if (!chrome) {
-      reject(new Error('Chrome sau Edge nu a fost găsit pe acest PC.'));
+      reject(new Error('Chrome/Chromium nu a fost găsit. Instalează Chrome/Edge sau setează CHROME_PATH.'));
       return;
     }
 
@@ -145,17 +152,19 @@ function generatePdf() {
       return;
     }
 
-    const fileUrl = 'file:///' + CV_HTML.replace(/\\/g, '/');
+    const previewUrl = `http://127.0.0.1:${PORT}/preview/cv`;
     const args = [
       '--headless=new',
       '--disable-gpu',
       '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
       '--run-all-compositor-stages-before-draw',
       '--virtual-time-budget=12000',
       `--print-to-pdf=${CV_PDF}`,
       '--print-to-pdf-no-header',
       '--no-pdf-header-footer',
-      fileUrl,
+      previewUrl,
     ];
 
     const proc = spawn(chrome, args, { stdio: ['ignore', 'pipe', 'pipe'] });
@@ -211,6 +220,20 @@ const server = http.createServer(async (req, res) => {
         return res.end('Forbidden');
       }
       return serveStatic(res, filePath, req.method === 'HEAD');
+    }
+
+    if (req.method === 'GET' && url.pathname === '/health') {
+      return sendJson(res, 200, { ok: true });
+    }
+
+    if (req.method === 'GET' && url.pathname === '/preview/cv') {
+      if (!fs.existsSync(CV_HTML)) {
+        res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+        return res.end('CV negăsit. Salvează mai întâi conținutul.');
+      }
+      const content = fs.readFileSync(CV_HTML, 'utf8');
+      res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+      return res.end(content);
     }
 
     if (req.method === 'GET' && url.pathname === '/api/templates') {
@@ -309,12 +332,15 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, () => {
+server.listen(PORT, HOST, () => {
   ensureDirs();
   console.log('');
   console.log('  CV Maker PDF');
   console.log('  ------------');
   console.log(`  Deschide: http://localhost:${PORT}`);
+  if (HOST === '0.0.0.0') {
+    console.log(`  (cloud: ascultă pe ${HOST}:${PORT})`);
+  }
   console.log(`  CV HTML:  ${CV_HTML}`);
   console.log(`  CV PDF:   ${CV_PDF}`);
   console.log(`  Uploads:  ${UPLOADS_DIR}`);
