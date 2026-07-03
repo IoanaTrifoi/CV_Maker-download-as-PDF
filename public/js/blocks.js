@@ -246,6 +246,13 @@ function normalizeBlock(block) {
 
   if (block.type === 'header') {
     block.photo = block.photo || { width: 128, height: 176 };
+    if (!block.nameColor) block.nameColor = '#111827';
+    if (!block.titleColor) block.titleColor = '#1d4ed8';
+    if (!block.contactColor) block.contactColor = '#4b5563';
+    if (!block.iconColor) block.iconColor = '#9ca3af';
+    if (!block.borderColor) block.borderColor = '#e5e7eb';
+    if (!block.bgColor) block.bgColor = 'transparent';
+    if (!block.nameTransform) block.nameTransform = 'uppercase';
     const pw = Number(block.photo.width) || 128;
     const ph = Number(block.photo.height) || 176;
     if (pw > 320 || ph > 400 || pw / Math.max(ph, 1) > 2.5 || ph / Math.max(pw, 1) > 2.5) {
@@ -376,10 +383,11 @@ function shapeStyle(block) {
   return `width:${w}%;height:${h}px;background:${color};border:${border};border-radius:${radius};transform:scale(${scale});transform-origin:left center;`;
 }
 
-function renderContact(contact) {
+function renderContact(contact, headerBlock = null) {
   const iconClass = contact.brand ? 'fa-brands' : 'fa-solid';
+  const iconColor = headerBlock?.iconColor || '#9ca3af';
   const inner = contact.href ? `<a href="${esc(contact.href)}" class="link-hover">${esc(contact.text)}</a>` : `<span>${esc(contact.text)}</span>`;
-  return `<div class="flex items-center gap-3"><i class="${iconClass} ${contact.icon} w-4 text-center text-gray-400"></i>${inner}</div>`;
+  return `<div class="flex items-center gap-3"><i class="${iconClass} ${contact.icon} w-4 text-center" style="color:${iconColor};"></i>${inner}</div>`;
 }
 
 function renderTimeline(block, last = false) {
@@ -549,10 +557,20 @@ function renderSkillDots(block) {
 }
 
 function renderHeader(block) {
-  const contacts = (block.contacts || []).map(renderContact).join('\n');
+  const contacts = (block.contacts || []).map((c) => renderContact(c, block)).join('\n');
   block.photo = block.photo || { width: 128, height: 176 };
   const photoStyle = imageStyle({ width: block.photo.width, height: block.photo.height, objectFit: 'cover' });
-  return `<header class="cv-header flex flex-col-reverse sm:flex-row justify-between items-start border-b-2 border-gray-200 pb-6 mb-6 cv-item"><div class="flex-1 mt-4 sm:mt-0"><h1 class="text-4xl font-bold text-gray-900 tracking-tight uppercase">${esc(block.name)}</h1><h2 class="text-xl font-medium text-blue-700 mt-2">${esc(block.title)}</h2><div class="mt-4 space-y-1 text-sm text-gray-600">${contacts}</div></div><img src="${fileUrl(block.image, true)}" alt="${esc(block.name)}" class="shrink-0 ml-0 sm:ml-8 rounded shadow-sm border border-gray-200" style="${photoStyle}"></header>`;
+  const nameColor = block.nameColor || '#111827';
+  const titleColor = block.titleColor || '#1d4ed8';
+  const contactColor = block.contactColor || '#4b5563';
+  const borderColor = block.borderColor || '#e5e7eb';
+  const bgColor = block.bgColor && block.bgColor !== 'transparent' ? `background:${block.bgColor};` : '';
+  const nameTransform = block.nameTransform ? `text-transform:${block.nameTransform};` : '';
+  const titleTransform = block.titleTransform ? `text-transform:${block.titleTransform};` : '';
+  const imgHtml = block.image
+    ? `<img src="${fileUrl(block.image, true)}" alt="${esc(block.name)}" class="shrink-0 ml-0 sm:ml-8 rounded shadow-sm border border-gray-200" style="${photoStyle}">`
+    : '';
+  return `<header class="cv-header flex flex-col-reverse sm:flex-row justify-between items-start pb-6 mb-6 cv-item" style="border-bottom:2px solid ${borderColor};${bgColor}"><div class="flex-1 mt-4 sm:mt-0"><h1 class="text-4xl font-bold tracking-tight" style="color:${nameColor};${nameTransform}">${esc(block.name)}</h1><h2 class="text-xl font-medium mt-2" style="color:${titleColor};${titleTransform}">${esc(block.title)}</h2><div class="mt-4 space-y-1 text-sm" style="color:${contactColor}">${contacts}</div></div>${imgHtml}</header>`;
 }
 
 function defaultPage() {

@@ -732,17 +732,17 @@ body {
 /* ── CANVAS BLOCK PREVIEWS ─────────────────────────────────── */
 .preview-header {
   padding: 6px;
-  background: linear-gradient(135deg, #eff6ff, #f8fafc);
   border-radius: 6px;
   border: 1px solid #dbeafe;
+  border-bottom-width: 2px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 8px;
 }
-.preview-name { font-size: 15px; font-weight: 800; color: #1e293b; }
-.preview-title { font-size: 11px; color: var(--accent-blue); font-weight: 600; margin-top: 2px; }
-.preview-contacts { font-size: 10px; color: #64748b; margin-top: 3px; line-height: 1.6; }
+.preview-name { font-size: 15px; font-weight: 800; }
+.preview-title { font-size: 11px; font-weight: 600; margin-top: 2px; }
+.preview-contacts { font-size: 10px; margin-top: 3px; line-height: 1.6; }
 .preview-photo {
   width: 46px; height: 56px;
   background: linear-gradient(135deg, #dbeafe, #bfdbfe);

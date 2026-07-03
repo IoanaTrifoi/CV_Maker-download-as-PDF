@@ -33,6 +33,7 @@ let sortables = [];
 let colorMode = 'fg';
 let activeFg = '#000080';
 let activeBg = '#ffffff';
+let headerColorTarget = 'nameColor';
 
 // ── Status helpers ─────────────────────────────────────────────
 function setStatus(text, type = '') {
@@ -111,7 +112,14 @@ function selectBlock(id) {
   renderCanvas();
   renderProps();
   const found = CVBlocks.findBlock(state.blocks, id);
-  if (found) setMid(blockLabel(found.block));
+  if (found) {
+    setMid(blockLabel(found.block));
+    if (found.block.type === 'header') {
+      activeFg = found.block[headerColorTarget] || found.block.nameColor || '#111827';
+      activeBg = found.block.bgColor && found.block.bgColor !== 'transparent' ? found.block.bgColor : '#ffffff';
+      updateColorSwatches();
+    }
+  }
 }
 
 function blockLabel(block) {
@@ -183,13 +191,20 @@ function renderBlockPreview(block) {
     const photo = block.photo || { width: 128, height: 176 };
     const pw = photo.width || 128;
     const ph = photo.height || 176;
+    const nameColor = block.nameColor || '#111827';
+    const titleColor = block.titleColor || '#1d4ed8';
+    const contactColor = block.contactColor || '#4b5563';
+    const borderColor = block.borderColor || '#e5e7eb';
+    const bgStyle = block.bgColor && block.bgColor !== 'transparent' ? `background:${block.bgColor};` : '';
+    const nameTransform = block.nameTransform ? `text-transform:${block.nameTransform};` : '';
+    const titleTransform = block.titleTransform ? `text-transform:${block.titleTransform};` : '';
     const img = block.image
       ? `<div class="image-resize-frame rounded shadow-sm border border-gray-200" style="${CVBlocks.imageFrameStyle(pw, ph)}" data-image-frame-id="${block.id}">
           <img src="${CVBlocks.fileUrl(block.image)}" class="preview-photo-img" style="${CVBlocks.imageFillStyle('cover')}" alt="">
           ${renderResizeHandles(block.id)}
         </div>`
       : '<div class="preview-photo">📷</div>';
-    return `<div class="preview-header"><div><div class="preview-name">${block.name || ''}</div><div class="preview-title">${block.title || ''}</div><div class="preview-contacts">${(block.contacts || []).slice(0, 3).map((c) => `<div>• ${c.text || ''}</div>`).join('')}</div></div>${img}</div>`;
+    return `<div class="preview-header" style="${bgStyle}border-color:${borderColor};"><div><div class="preview-name" style="color:${nameColor};${nameTransform}">${block.name || ''}</div><div class="preview-title" style="color:${titleColor};${titleTransform}">${block.title || ''}</div><div class="preview-contacts" style="color:${contactColor};">${(block.contacts || []).slice(0, 3).map((c) => `<div>• ${c.text || ''}</div>`).join('')}</div></div>${img}</div>`;
   }
   if (block.type === 'section') {
     const layout = block.layout || CVBlocks.defaultLayout();
@@ -661,6 +676,16 @@ function renderProps() {
   if (block.type === 'header') {
     html += field(t('lbl_name'), 'name', block.name);
     html += field(t('lbl_title'), 'title', block.title);
+    html += `<div class="prop-subtitle">${t('props_header_colors')}</div>`;
+    html += colorPicker(t('lbl_name_color'), 'nameColor', block.nameColor || '#111827');
+    html += colorPicker(t('lbl_title_color'), 'titleColor', block.titleColor || '#1d4ed8');
+    html += colorPicker(t('lbl_contact_color'), 'contactColor', block.contactColor || '#4b5563');
+    html += colorPicker(t('lbl_icon_color'), 'iconColor', block.iconColor || '#9ca3af');
+    html += colorPicker(t('lbl_border_color'), 'borderColor', block.borderColor || '#e5e7eb');
+    html += colorPicker(t('lbl_bg'), 'bgColor', block.bgColor || 'transparent');
+    html += `<label class="prop-field"><span>${t('lbl_palette_target')}</span><select id="headerColorTarget"><option value="nameColor" ${headerColorTarget === 'nameColor' ? 'selected' : ''}>${t('lbl_name')}</option><option value="titleColor" ${headerColorTarget === 'titleColor' ? 'selected' : ''}>${t('lbl_title')}</option><option value="contactColor" ${headerColorTarget === 'contactColor' ? 'selected' : ''}>${t('props_contacts')}</option><option value="iconColor" ${headerColorTarget === 'iconColor' ? 'selected' : ''}>${t('lbl_icon')}</option></select></label>`;
+    html += `<label class="prop-field"><span>${t('lbl_name')} — ${t('lbl_text_transform')}</span><select data-key="nameTransform">${CVBlocks.TEXT_TRANSFORMS.map((tr) => `<option value="${tr.value}" ${(block.nameTransform || 'uppercase') === tr.value ? 'selected' : ''}>${tr.label}</option>`).join('')}</select></label>`;
+    html += `<label class="prop-field"><span>${t('lbl_title')} — ${t('lbl_text_transform')}</span><select data-key="titleTransform">${CVBlocks.TEXT_TRANSFORMS.map((tr) => `<option value="${tr.value}" ${(block.titleTransform || '') === tr.value ? 'selected' : ''}>${tr.label}</option>`).join('')}</select></label>`;
     html += field(t('lbl_image'), 'image', block.image);
     html += `<label class="prop-field upload-field"><span>${t('lbl_upload_photo')}</span><input type="file" id="headerImageUpload" accept="image/*"></label>`;
     if (block.image) html += `<div class="upload-preview"><img src="${CVBlocks.fileUrl(block.image)}" alt=""></div>`;
@@ -837,7 +862,16 @@ function bindPropsEvents(container, block = null) {
   });
 
   if (block) {
-    container.querySelectorAll('[data-remove-contact]').forEach((btn) => {
+    container.querySelector('#headerColorTarget')?.addEventListener('change', (e) => {
+    headerColorTarget = e.target.value;
+    const found = getSelected();
+    if (found?.block.type === 'header' && found.block[headerColorTarget]) {
+      activeFg = found.block[headerColorTarget];
+      updateColorSwatches();
+    }
+  });
+
+  container.querySelectorAll('[data-remove-contact]').forEach((btn) => {
       btn.addEventListener('click', () => {
         block.contacts.splice(Number(btn.dataset.removeContact), 1);
         pushHistory();
@@ -1165,6 +1199,7 @@ function applyColorFromBar(color) {
 function getTextColorKey(block) {
   const textColorTypes = ['paragraph', 'heading', 'quote', 'highlight', 'emoji-line', 'badge'];
   if (textColorTypes.includes(block.type)) return 'textColor';
+  if (block.type === 'header') return headerColorTarget;
   if (block.type === 'section') return 'titleColor';
   if (block.type === 'icon-row') return 'color';
   if (block.type === 'badge') return 'textColor';
@@ -1173,6 +1208,7 @@ function getTextColorKey(block) {
 }
 
 function getBgColorKey(block) {
+  if (block.type === 'header') return 'bgColor';
   if (block.type === 'section') return 'layout.bgColor';
   if (block.type === 'container') return 'bgColor';
   if (block.type === 'highlight') return 'color';
